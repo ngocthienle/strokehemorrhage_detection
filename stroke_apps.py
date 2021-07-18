@@ -12,18 +12,18 @@ from PIL import Image
 import pandas as pd
 import numpy as np
 
-import cv2
+import os, urllib, cv2
 import tensorflow as tf
 from tensorflow.keras.preprocessing import image
 from tensorflow.keras.applications.mobilenet_v2 import MobileNetV2,preprocess_input as mobilenet_v2_preprocess_input
 
 # NAME OF PAGE
-logo_image = Image.open('D:\OneDrive\streamlitprojects\strokeapps/logo.png')
+logo_image = Image.open('logo.png')
 st.set_page_config(page_title = 'StrokeApps', page_icon=logo_image)
 
 @st.cache(allow_output_mutation=True)
 def load_model():
-    model = tf.keras.models.load_model("D:\OneDrive\streamlitprojects\strokeapps\\aimodels\multi_stroke.hdf5")
+    model = tf.keras.models.load_model("aimodels/multi_stroke.hdf5")
     return model
 
 with st.spinner('Loading Model Into Memory...'):
@@ -39,7 +39,7 @@ st.write("""
     """)
     
 st.subheader('Example input CT-brain images')
-image = Image.open('D:\OneDrive\streamlitprojects\strokeapps\example_pics.jpg')
+image = Image.open('example_pics.jpg')
 st.image(image, caption='Example CT-brain images. Source of these images from CQ500 publish dataset (http://headctstudy.qure.ai/dataset)')
 
 st.subheader('Choose a CT-brain image and get the output prediction')
