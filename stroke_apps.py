@@ -45,13 +45,13 @@ st.image(image, caption='Example CT-brain images. Source of these images from CQ
 st.subheader('Choose a CT-brain image and get the output prediction')
 uploaded_file = st.file_uploader("Upload your input jpeg file", type=["jpg"])
 
-map_dict = {0: 'background.',
-            1: 'abnormal at center brain layer', # hge
-            2: 'abnormal at eyeball brain layer.', #hge_eyeball
+map_dict = {6: 'background.',
+            5: 'abnormal at center brain layer', # hge
+            4: 'abnormal at eyeball brain layer.', #hge_eyeball
             3: 'abnormal at top brain layer.', #hge_top
-            4: 'normal at center brain layer.',#nonehge
-            5: 'normal at eyeball brain layer.',#nonehge_eyeball
-            6: 'normal at top brain layer.', #nonehge_top
+            2: 'normal at center brain layer.',#nonehge
+            1: 'normal at eyeball brain layer.',#nonehge_eyeball
+            0: 'normal at top brain layer.', #nonehge_top
             }
 
 if uploaded_file is not None:
