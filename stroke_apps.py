@@ -23,7 +23,7 @@ st.set_page_config(page_title = 'StrokeApps', page_icon=logo_image)
 
 @st.cache(allow_output_mutation=True)
 def load_model():
-    model = tf.keras.models.load_model("aimodels/multi_stroke.hdf5")
+    model = tf.keras.models.load_model("aimodels/multi_stroke_newversion.hdf5")
     return model
 
 with st.spinner('Loading Model Into Memory...'):
