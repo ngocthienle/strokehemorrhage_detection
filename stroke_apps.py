@@ -30,17 +30,18 @@ with st.spinner('Loading Model Into Memory...'):
     model = load_model()
 
 # Create web-app title
-st.title("""Deep Learning Model for Stroke Signs Detection Using X-Ray Brain image""")
+st.title("""Deep Learning Model for Stroke Signs Detection Using CT Brain image""")
 
 # Create header explaination
-st.write("""
-    This web-apps predicts the CT-brain image is normal or abnormal (with signs of stroke).
-    The backend system is a trained AI model.
-    """)
-    
-st.subheader('Example input CT-brain images')
-image = Image.open('example_pics.jpg')
-st.image(image, caption='Example CT-brain images. Source of these images from CQ500 publish dataset (http://headctstudy.qure.ai/dataset)')
+my_expander = st.expander("See explanation", expanded=False)
+with my_expander:
+    st.write("""
+             This webapps-based Deep Learning model examines a CT-brain image is normal or abnormal (with signs of stroke).
+             The trained Deep Learning model engine is based on the MobileNet deep learning model.
+                 """)
+    image = Image.open('example_pics.jpg')
+    st.image(image,
+             caption='Example CT brain images classification.')
 
 st.subheader('Choose a CT-brain image and get the output prediction')
 uploaded_file = st.file_uploader("Upload your input jpeg file", type=["jpg"])
