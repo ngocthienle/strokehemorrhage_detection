@@ -30,7 +30,7 @@ with st.spinner('Loading Model Into Memory...'):
     model = load_model()
 
 # Create web-app title
-st.title("""Stroke LVO Web Application Chulalongkorn University""")
+st.title("""Deep learning model for stroke signs detection""")
 
 # Create header explaination
 st.write("""
