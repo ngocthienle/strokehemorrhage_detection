@@ -32,6 +32,15 @@ with st.spinner('Loading Model Into Memory...'):
 # Create web-app title
 st.title("""Deep Learning Model for Stroke Signs Detection Using CT Brain image""")
 
+# Create header objectives
+my_objectives = st.expander ("Objectives", expanded=False)
+with my_objectives:
+    st.write("""
+         - Design, develop, and test a web app using AI for stroke detection.
+         - Improve and install prototype systems and AI models for stroke detection.
+         - Trial prototype systems and AI models for stroke detection. along with the evaluation results and summary of the proposed system.
+             """)
+
 # Create header explaination
 my_expander = st.expander("See explanation", expanded=False)
 with my_expander:
@@ -43,7 +52,7 @@ with my_expander:
     st.image(image,
              caption='Example CT brain images classification.')
 
-st.subheader('Choose a CT-brain image and get the output prediction')
+st.subheader('Choose a CT-brain image and get the stroke signs diagnosis by AI model')
 uploaded_file = st.file_uploader("Upload your input jpeg file", type=["jpg"])
 
 map_dict = {6: 'background.',
@@ -67,7 +76,7 @@ if uploaded_file is not None:
     resized = mobilenet_v2_preprocess_input(resized)
     img_reshape = resized[np.newaxis,...]
 
-    Genrate_pred = st.button("Generate Prediction")    
+    Genrate_pred = st.button("Examine this image")    
     if Genrate_pred:
         prediction = model.predict(img_reshape).argmax()
         st.title("The CT-brain image is {}".format(map_dict [prediction]))
